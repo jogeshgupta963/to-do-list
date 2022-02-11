@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import List from "./components/List"
+import Input from "./components/Input"
+import { useState } from "react";
 function App() {
+
+
+  const [lists, setLists] = useState([])
+
+  function setterListt(task) {
+    console.log("task is" + task)
+    let obj = { task: task, id: lists.length }
+    setLists([...lists, obj])
+  }
+  console.log(lists)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Input setterListt={setterListt} />
+      <List lists={lists} setterListt={setterListt} />
+    </>
   );
 }
 
