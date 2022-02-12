@@ -12,7 +12,7 @@ function Input({ setterListt }) {
         setterListt(input)
     }
 
-    console.log(input)
+
     return (
         <>
             <form >
