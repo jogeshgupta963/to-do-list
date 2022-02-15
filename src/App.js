@@ -7,16 +7,20 @@ function App() {
   const [lists, setLists] = useState([])
 
   function setterListt(task) {
-    console.log("task is " + task)
     let obj = { task: task, id: lists.length }
     setLists([...lists, obj])
   }
-  console.log(lists)
+  function deleteListItem(id) {
+
+    let newList = lists.filter(item => item.id != id)
+    setLists(newList)
+  }
+
 
   return (
     <>
       <Input setterListt={setterListt} />
-      <List lists={lists} setterListt={setterListt} />
+      <List lists={lists} deleteListItem={deleteListItem} />
     </>
   );
 }

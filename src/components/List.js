@@ -1,12 +1,10 @@
 import { useState, useRef } from "react";
 
-function List({ lists, setterListt }) {
-    console.log(lists)
-    const div = useRef(null)
-    function clickHandleDone(e) {
-        e.preventDefault();
-        console.log(div.current);
-        div.current.style.textDecoration = "line-through";
+function List({ lists, deleteListItem }) {
+
+
+    function clickHandleDelete(id) {
+        deleteListItem(id)
     }
     return (
         <>
@@ -16,10 +14,12 @@ function List({ lists, setterListt }) {
 
                     return (
                         <>
-                            <div ref={div}>{list.task}</div>
-                            <button onClick={clickHandleDone}>Done</button>
-                            <button >Delete</button>
-                            <button>edit</button>
+                            <div className="list-preview" key={list.id}>
+                                <div >{list.task}</div>
+                                <button>Done</button>
+                                <button onClick={() => clickHandleDelete(list.id)} >Delete</button>
+                                <button>edit</button>
+                            </div>
                         </>
 
                     )
