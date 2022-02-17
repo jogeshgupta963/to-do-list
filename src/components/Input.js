@@ -16,9 +16,10 @@ function Input({ setterListt }) {
     return (
         <>
             <form >
-                <h1>Your Today's Work</h1>
+                <h1>ToDo List</h1>
                 <input type="text" value={input} placeholder="toDo" onChange={changeHandle} />
                 <button onClick={clickHandle}>Add</button>
+
             </form>
         </>
     );

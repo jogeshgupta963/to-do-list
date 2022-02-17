@@ -1,6 +1,7 @@
 import List from "./components/List"
 import Input from "./components/Input"
 import { useState } from "react";
+import './App.css'
 function App() {
 
 
@@ -18,10 +19,10 @@ function App() {
 
 
   return (
-    <>
+    <div className="container">
       <Input setterListt={setterListt} />
       <List lists={lists} deleteListItem={deleteListItem} />
-    </>
+    </div>
   );
 }
 
